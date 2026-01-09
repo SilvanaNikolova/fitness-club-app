@@ -32,8 +32,8 @@ public class Client {
             Here is the menu:""");
         System.out.println("------------------------------------------Trainings------------------------------------------");
         System.out.println("Get all trainings -> get trainings --all");
-        System.out.println("Get training by name -> get trainings --training_name \"...\"");
-        System.out.println("Get trainings by type -> get trainings --type [\"CARDIO\", \"STRENGTH\", ...]\"");
+        System.out.println("Get training by name -> get training --training_name \"...\""); //
+        System.out.println("Get trainings by type -> get trainings --type [\"CARDIO\", \"STRENGTH\", ...]");
         System.out.println(
             "Get trainings with certain exercise -> get trainings --exercises [\"push-ups\", \"deadlift\", ...]");
         System.out.println(

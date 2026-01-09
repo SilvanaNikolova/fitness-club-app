@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public enum TrainingType {
     STRENGHT("strenght"),
-    FULL_BODY("full body"),
+    FULL_BODY("full_body"),
     CARDIO("cardio"),
     PILATES("pilates"),
     YOGA("yoga"),

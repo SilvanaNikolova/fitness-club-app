@@ -5,7 +5,9 @@ import java.util.Arrays;
 public enum EquipmentType {
     NONE("none"),
     BODYWEIGHT("bodyweight"),
-    DUMBBELLS("dumbells"),
+    FREE_WEIGHTS("free_weights"),
+    MACHINE("machine"),
+    MAT("mat"),
     UNKNOWN("unknown");
 
     private final String equipmentType;

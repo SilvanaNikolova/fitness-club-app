@@ -55,14 +55,14 @@ public class Queries {
             resultSet.next();
 
             TrainingType type = TrainingType.getTrainingType(resultSet.getString(TYPE));
-            Difficulty serveStyle = Difficulty.getType(resultSet.getString(DIFFICULTY));
-            int preparationTime = resultSet.getInt(DURATION);
+            Difficulty difficulty = Difficulty.getType(resultSet.getString(DIFFICULTY));
+            int duration = resultSet.getInt(DURATION);
 
             trainings.add(new Training(trainingName,
                     type.getTrainingTypeString(),
-                    serveStyle.getTypeString(),
+                    difficulty.getTypeString(),
                     getExercisesByTrainingName(trainingName),
-                    preparationTime,
+                    duration,
                     getMuscleGroupsByTrainingName(trainingName),
                     getAllEquipmentByTrainingName(trainingName)));
         }
@@ -91,9 +91,9 @@ public class Queries {
         String query = """
                 SELECT * FROM trainings
                 WHERE id IN (
-                        SELECT training_id FROM muscles_for_trainings
+                        SELECT training_id FROM muscles_for_training
                         WHERE muscle_id IN (
-                                SELECT id FROM muscle
+                                SELECT id FROM muscles
                                 WHERE name IN (
                                                 """ + makeCollectionStringForQuery(musleGroups) +
                 ")))";
@@ -198,7 +198,7 @@ public class Queries {
                 WHERE id IN (
                         SELECT muscle_id FROM muscles_for_training
                         WHERE training_id IN (
-                                SELECT id FROM training
+                                SELECT id FROM trainings
                                 WHERE name = \"""" +
                 trainingName + "\"))");
 
