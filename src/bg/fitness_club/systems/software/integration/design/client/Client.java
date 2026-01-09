@@ -32,7 +32,7 @@ public class Client {
             Here is the menu:""");
         System.out.println("------------------------------------------Trainings------------------------------------------");
         System.out.println("Get all trainings -> get trainings --all");
-        System.out.println("Get training by name -> get training --training_name \"...\""); //
+        System.out.println("Get training by name -> get training --training_name \"...\"");
         System.out.println("Get trainings by type -> get trainings --type [\"CARDIO\", \"STRENGTH\", ...]");
         System.out.println(
             "Get trainings with certain exercise -> get trainings --exercises [\"push-ups\", \"deadlift\", ...]");
@@ -82,7 +82,7 @@ public class Client {
             } else {
                 System.out.println("""
                     Cannot create file because command is incorrect!
-                    The command looks like this: get file --recipe_name "..." --path "..."
+                    The command looks like this: get file --training_name "..." --path "..."
                     """);
             }
         }
@@ -138,7 +138,6 @@ public class Client {
 
                     message = "get training --training_name " + '"' + messageParts.get(3) + '"';
                 }
-                //System.out.println("Sending message {" + message + "} to the server...");
 
                 buffer.clear();
                 buffer.put(message.getBytes());
@@ -152,8 +151,6 @@ public class Client {
                 byte[] byteArray = new byte[buffer.remaining()];
                 buffer.get(byteArray);
                 String reply = new String(byteArray, StandardCharsets.UTF_8);
-
-                //String reply = new String(buffer.array(), 0, buffer.position(), "UTF-8"); // buffer drain
 
                 if (messageParts == null) {
                     System.out.println("The Fitness Club's response is:\n" + reply + "\n");

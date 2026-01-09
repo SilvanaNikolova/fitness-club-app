@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `muscle_groups`
+-- Table structure for table `muscles`
 --
 
 CREATE TABLE `muscles` (
@@ -33,7 +33,7 @@ CREATE TABLE `muscles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `muscle_groups`
+-- Dumping data for table `muscles`
 --
 
 INSERT INTO `muscles` (`id`, `name`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `muscles` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `allergens_for_recipe`
+-- Table structure for table `muscles_for_training`
 --
 
 CREATE TABLE `muscles_for_training` (
@@ -57,7 +57,7 @@ CREATE TABLE `muscles_for_training` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `allergens_for_recipe`
+-- Dumping data for table `muscles_for_training`
 --
 
 INSERT INTO `muscles_for_training` (`id`, `muscle_id`, `training_id`) VALUES
@@ -74,7 +74,7 @@ INSERT INTO `muscles_for_training` (`id`, `muscle_id`, `training_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `drinks`
+-- Table structure for table `equipment`
 --
 
 CREATE TABLE `equipment` (
@@ -85,7 +85,7 @@ CREATE TABLE `equipment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `drinks`
+-- Dumping data for table `equipment`
 --
 
 INSERT INTO `equipment` (`id`, `name`, `type`, `difficulty`) VALUES
@@ -99,7 +99,7 @@ INSERT INTO `equipment` (`id`, `name`, `type`, `difficulty`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `drinks_for_recipe`
+-- Table structure for table `equipment_for_training`
 --
 
 CREATE TABLE `equipment_for_training` (
@@ -109,7 +109,7 @@ CREATE TABLE `equipment_for_training` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `drinks_for_recipe`
+-- Dumping data for table `equipment_for_training`
 --
 
 INSERT INTO `equipment_for_training` (`id`, `equipment_id`, `training_id`) VALUES
@@ -121,7 +121,7 @@ INSERT INTO `equipment_for_training` (`id`, `equipment_id`, `training_id`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ingredients`
+-- Table structure for table `exercises`
 --
 
 CREATE TABLE `exercises` (
@@ -130,7 +130,7 @@ CREATE TABLE `exercises` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ingredients`
+-- Dumping data for table `exercises`
 --
 
 INSERT INTO `exercises` (`id`, `name`) VALUES
@@ -146,7 +146,7 @@ INSERT INTO `exercises` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ingredients_for_recipe`
+-- Table structure for table `exercises_for_training`
 --
 
 CREATE TABLE `exercises_for_training` (
@@ -156,7 +156,7 @@ CREATE TABLE `exercises_for_training` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ingredients_for_recipe`
+-- Dumping data for table `exercises_for_training`
 --
 
 INSERT INTO `exercises_for_training` (`id`, `exercise_id`, `training_id`) VALUES
@@ -172,7 +172,7 @@ INSERT INTO `exercises_for_training` (`id`, `exercise_id`, `training_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recipes`
+-- Table structure for table `trainings`
 --
 
 CREATE TABLE `trainings` (
@@ -184,7 +184,7 @@ CREATE TABLE `trainings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `recipes`
+-- Dumping data for table `trainings`
 --
 
 INSERT INTO `trainings` (`id`, `name`, `type`, `difficulty`, `duration`) VALUES
@@ -198,14 +198,14 @@ INSERT INTO `trainings` (`id`, `name`, `type`, `difficulty`, `duration`) VALUES
 --
 
 --
--- Indexes for table `allergens`
+-- Indexes for table `muscles`
 --
 ALTER TABLE `muscles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indexes for table `allergens_for_recipe`
+-- Indexes for table `muscles_for_training`
 --
 ALTER TABLE `muscles_for_training`
   ADD PRIMARY KEY (`id`),
@@ -213,14 +213,14 @@ ALTER TABLE `muscles_for_training`
   ADD KEY `training_id` (`training_id`);
 
 --
--- Indexes for table `drinks`
+-- Indexes for table `equipment`
 --
 ALTER TABLE `equipment`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indexes for table `drinks_for_recipe`
+-- Indexes for table `equipment_for_training`
 --
 ALTER TABLE `equipment_for_training`
   ADD PRIMARY KEY (`id`),
@@ -228,14 +228,14 @@ ALTER TABLE `equipment_for_training`
   ADD KEY `training_id` (`training_id`);
 
 --
--- Indexes for table `ingredients`
+-- Indexes for table `exercises`
 --
 ALTER TABLE `exercises`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indexes for table `ingredients_for_recipe`
+-- Indexes for table `exercises_for_training`
 --
 ALTER TABLE `exercises_for_training`
   ADD PRIMARY KEY (`id`),
@@ -243,7 +243,7 @@ ALTER TABLE `exercises_for_training`
   ADD KEY `training_id` (`training_id`);
 
 --
--- Indexes for table `recipes`
+-- Indexes for table `trainings`
 --
 ALTER TABLE `trainings`
   ADD PRIMARY KEY (`id`),
@@ -254,43 +254,43 @@ ALTER TABLE `trainings`
 --
 
 --
--- AUTO_INCREMENT for table `allergens`
+-- AUTO_INCREMENT for table `muscles`
 --
 ALTER TABLE `muscles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `allergens_for_recipe`
+-- AUTO_INCREMENT for table `muscles_for_training`
 --
 ALTER TABLE `muscles_for_training`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `drinks`
+-- AUTO_INCREMENT for table `equipment`
 --
 ALTER TABLE `equipment`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `drinks_for_recipe`
+-- AUTO_INCREMENT for table `equipment_for_training`
 --
 ALTER TABLE `equipment_for_training`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `ingredients`
+-- AUTO_INCREMENT for table `exercises`
 --
 ALTER TABLE `exercises`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `ingredients_for_recipe`
+-- AUTO_INCREMENT for table `exercises_for_training`
 --
 ALTER TABLE `exercises_for_training`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `recipes`
+-- AUTO_INCREMENT for table `trainings`
 --
 ALTER TABLE `trainings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
@@ -300,21 +300,21 @@ ALTER TABLE `trainings`
 --
 
 --
--- Constraints for table `allergens_for_recipe`
+-- Constraints for table `muscles_for_training`
 --
 ALTER TABLE `muscles_for_training`
   ADD CONSTRAINT `muscles_for_training_ibfk_1` FOREIGN KEY (`muscle_id`) REFERENCES `muscles` (`id`),
   ADD CONSTRAINT `muscles_for_training_ibfk_2` FOREIGN KEY (`training_id`) REFERENCES `trainings` (`id`);
 
 --
--- Constraints for table `drinks_for_recipe`
+-- Constraints for table `equipment_for_training`
 --
 ALTER TABLE `equipment_for_training`
   ADD CONSTRAINT `equipment_for_training_ibfk_1` FOREIGN KEY (`equipment_id`) REFERENCES `equipment` (`id`),
   ADD CONSTRAINT `equipment_for_training_ibfk_2` FOREIGN KEY (`training_id`) REFERENCES `trainings` (`id`);
 
 --
--- Constraints for table `ingredients_for_recipe`
+-- Constraints for table `exercises_for_training`
 --
 ALTER TABLE `exercises_for_training`
   ADD CONSTRAINT `exercises_for_training_ibfk_1` FOREIGN KEY (`exercise_id`) REFERENCES `exercises` (`id`),
